@@ -1193,49 +1193,6 @@
       </properties>
       <build>
         <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-antrun-plugin</artifactId>
-            <version>1.7</version>
-            <executions>
-              <execution>
-                <id>download-hadoop</id>
-                <phase>generate-resources</phase>
-                <goals>
-                  <goal>run</goal>
-                </goals>
-                <configuration>
-                  <target name="Downloading Hadoop">
-                    <mkdir dir="${project.build.directory}/embedded" />
-                    <get
-                      src="${hadoop.tar}"
-                      dest="${project.build.directory}/embedded/hadoop.tar.gz"
-                      usetimestamp="true"
-                      />
-                    <untar
-                      src="${project.build.directory}/embedded/hadoop.tar.gz"
-                      dest="${project.build.directory}/embedded"
-                      compression="gzip"
-                      />
-                    <!-- Resolving symlinks-->
-                    <move todir="${project.build.directory}/embedded/${hadoop.folder}/lib/native/">
-                      <fileset dir="${project.build.directory}/embedded/${hadoop.folder}/lib/native/"/>
-                      <mapper type="regexp" from="libsnappy.so.1.*.*" to="libsnappy.so.1"/>
-                    </move>
-                    <move
-                      file="${project.build.directory}/embedded/${hadoop.folder}/lib/native/libhdfs.so.0.0.0"
-                      tofile="${project.build.directory}/embedded/${hadoop.folder}/lib/native/libhdfs.so"
-                      />
-                    <move
-                      file="${project.build.directory}/embedded/${hadoop.folder}/lib/native/libhadoop.so.1.0.0"
-                      tofile="${project.build.directory}/embedded/${hadoop.folder}/lib/native/libhadoop.so"
-                      />
-                    <delete file="${project.build.directory}/embedded/${hadoop.folder}/lib/native/libsnappy.so"/>
-                  </target>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
         </plugins>
       </build>
     </profile>

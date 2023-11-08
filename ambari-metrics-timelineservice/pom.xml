@@ -864,60 +864,6 @@
       </activation>
       <build>
         <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-antrun-plugin</artifactId>
-            <version>1.7</version>
-            <executions>
-              <execution>
-                <phase>generate-resources</phase>
-                <goals>
-                  <goal>run</goal>
-                </goals>
-                <configuration>
-                  <target name="Download HBase">
-                    <mkdir dir="${project.build.directory}/embedded"/>
-                    <get
-                        src="${hbase.tar}"
-                        dest="${project.build.directory}/embedded/hbase.tar.gz"
-                        usetimestamp="true"
-                    />
-                    <untar
-                        src="${project.build.directory}/embedded/hbase.tar.gz"
-                        dest="${project.build.directory}/embedded"
-                        compression="gzip"
-                    />
-                  </target>
-                </configuration>
-              </execution>
-              <execution>
-                <id>phoenix_download</id>
-                <phase>generate-resources</phase>
-                <goals>
-                  <goal>run</goal>
-                </goals>
-                <configuration>
-                  <target name="Download Phoenix">
-                    <mkdir dir="${project.build.directory}/embedded"/>
-                    <get
-                        src="${phoenix.tar}"
-                        dest="${project.build.directory}/embedded/phoenix.tar.gz"
-                        usetimestamp="true"
-                    />
-                    <untar
-                        src="${project.build.directory}/embedded/phoenix.tar.gz"
-                        dest="${project.build.directory}/embedded"
-                        compression="gzip"
-                    />
-                    <move
-                        file="${project.build.directory}/embedded/${phoenix.folder}/phoenix-server-hbase-2.4-${phoenix.version}.jar"
-                        tofile="${project.build.directory}/embedded/${hbase.folder}/lib/phoenix-${phoenix.version}-server.jar"
-                    />
-                  </target>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
         </plugins>
       </build>
     </profile>

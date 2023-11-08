@@ -71,35 +71,6 @@
           </execution>
         </executions>
       </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <version>3.1.0</version>
-        <executions>
-          <execution>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>run</goal>
-            </goals>
-            <configuration>
-              <target name="Download Ambari Grafana">
-                <mkdir dir="${project.build.directory}/grafana" />
-                <get
-                  src="${grafana.tar}"
-                  dest="${project.build.directory}/grafana/grafana.tgz"
-                  usetimestamp="true"
-                  />
-                <untar
-                  src="${project.build.directory}/grafana/grafana.tgz"
-                  dest="${project.build.directory}/grafana"
-                  compression="gzip" allowFilesToEscapeDest="false"
-                  />
-              </target>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
     </plugins>
 
   </build>
