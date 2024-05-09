@@ -145,6 +145,13 @@ limitations under the License.
       <artifactId>kafka-clients</artifactId>
       <version>${kafka.version}</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-server-common -->
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-server-common</artifactId>
+      <version>3.6.2</version>
+    </dependency>
+
     <dependency>
       <groupId>com.yammer.metrics</groupId>
       <artifactId>metrics-core</artifactId>
