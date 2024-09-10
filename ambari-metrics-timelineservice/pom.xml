@@ -49,8 +49,7 @@
             <configuration>
               <outputDirectory>${project.build.directory}/lib</outputDirectory>
               <includeScope>compile</includeScope>
-              <excludeArtifactIds>jasper-runtime,jasper-compiler
-              </excludeArtifactIds>
+              <excludeArtifactIds>jasper-runtime,jasper-compiler,servlet-api</excludeArtifactIds>
             </configuration>
           </execution>
         </executions>
